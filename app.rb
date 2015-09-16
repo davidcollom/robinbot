@@ -1,10 +1,12 @@
 require 'sinatra'
 require 'securerandom'
+require 'cowsay'
+require './resources/bear.rb'
 
 class RobinBotApp < Sinatra::Base
   get '/' do
-    message = $redis.randomkey
-    `cowsay -f #{Dir.pwd}.resources/bear.cow  "#{message}"`
+    content_type 'text/plain;charset=utf8'
+    Cowsay::Character::Bear.say $redis.randomkey
   end
   
   post '/' do
