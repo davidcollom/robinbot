@@ -3,6 +3,7 @@ GEM
   specs:
     connection_pool (2.2.0)
     cowsay (0.2.0)
+    puma (2.13.4)
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
@@ -21,6 +22,7 @@ PLATFORMS
 DEPENDENCIES
   connection_pool
   cowsay
+  puma
   redis
   redis-store
   sinatra
