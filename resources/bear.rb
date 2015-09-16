@@ -1,27 +1,31 @@
 module Cowsay
   module Character
     class Bear < Base
+      def initialize
+        @thoughts = '\\'
+        @eyes = 'oo'
+        @tongue = ''
+      end
       def template
         <<-TEMPLATE
       @thoughts
-      \
-       \
-        \
+       @thoughts
+        @thoughts
           ( )___( )
-          /__oo   \
-         ( \/     )
+          /__@eyes   \\
+         ( \\/     )
          | `=/    |
-        /         \
-       /  /    \   \
-      /  (      \   \ 
-     ( ,_/_      \   \
-      \_ '=       \   )
+        /   @tongue    \\
+       /  /    \\   \\
+      /  (      \\   \\ 
+     ( ,_/_      \\   \\
+      \\_ '=       \\   )
         ""'       /  /
         ;        /  /'?
         :       (((( /
-         `._   \  _ (
+         `._   \\  _ (
           __|   |  /_    
-        ("__,.."'_._.)  
+        ("__,.."'_._.)
         TEMPLATE
       end
     end
