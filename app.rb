@@ -10,7 +10,9 @@ class RobinBotApp < Sinatra::Base
   end
   
   post '/' do
-    $redis[SecureRandom.uuid] = params[:msg] if params[:msg]!=''
+    key = SecureRandom.uuid
+    $redis[key] = params[:msg] if params[:msg]!=''
+    key
   end
   
   delete '/' do
