@@ -14,7 +14,6 @@ class RobinBotApp < Sinatra::Base
     Cowsay::Character::Bear.say $redis[ params[:key] ]
   end
   
-  
   post '/' do
     key = SecureRandom.uuid
     $redis[key] = params[:msg] if params[:msg]!=''
@@ -23,6 +22,9 @@ class RobinBotApp < Sinatra::Base
   
   delete '/' do
     $redis.delete[ params[:id] ]
+  end
+  delete '/:key' do
+    $redis.delete[ params[:key] ]
   end
   get '/health' do
     "OK"
