@@ -6,11 +6,12 @@ require './resources/bear.rb'
 class RobinBotApp < Sinatra::Base
   get '/' do
     content_type 'text/plain;charset=utf8'
-    Cowsay::Character::Bear.say $redis[$redis.randomkey]
+    key = params[:key].nil? ? SecureRandom.uuid : params[:key]
+    Cowsay::Character::Bear.say $redis[key]
   end
   
   post '/' do
-    key = params[:key].nil? ? SecureRandom.uuid : params[:key]
+    key = SecureRandom.uuid
     $redis[key] = params[:msg] if params[:msg]!=''
     key
   end
