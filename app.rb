@@ -12,4 +12,8 @@ class RobinBotApp < Sinatra::Base
   post '/' do
     $redis[SecureRandom.uuid] = params[:msg]
   end
+  
+  delete '/' do
+    $redis.delete[ params[:id] ]
+  end
 end
