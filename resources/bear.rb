@@ -8,14 +8,14 @@ module Cowsay
       end
       def template
         <<-TEMPLATE
-      @thoughts
-       @thoughts
-        @thoughts
+      #{@thoughts}
+       #{@thoughts}
+        #{@thoughts}
           ( )___( )
-          /__@eyes   \\
+          /__#{@eyes}   \\
          ( \\/     )
          | `=/    |
-        /   @tongue    \\
+        /   #{@tongue}    \\
        /  /    \\   \\
       /  (      \\   \\ 
      ( ,_/_      \\   \\
