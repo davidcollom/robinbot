@@ -10,7 +10,7 @@ class RobinBotApp < Sinatra::Base
   end
   
   post '/' do
-    $redis[SecureRandom.uuid] = params[:msg]
+    $redis[SecureRandom.uuid] = params[:msg] if params[:msg]!=''
   end
   
   delete '/' do
