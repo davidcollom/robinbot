@@ -10,7 +10,7 @@ class RobinBotApp < Sinatra::Base
   end
   
   post '/' do
-    key = SecureRandom.uuid
+    key = params[:key].nil? ? SecureRandom.uuid : params[:key]
     $redis[key] = params[:msg] if params[:msg]!=''
     key
   end
