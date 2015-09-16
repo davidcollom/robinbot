@@ -9,6 +9,11 @@ class RobinBotApp < Sinatra::Base
     key = params[:key].nil? ? SecureRandom.uuid : params[:key]
     Cowsay::Character::Bear.say $redis[key]
   end
+  get '/:key' do
+    content_type 'text/plain;charset=utf8'
+    Cowsay::Character::Bear.say $redis[ params[:key] ]
+  end
+  
   
   post '/' do
     key = SecureRandom.uuid
