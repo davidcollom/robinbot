@@ -16,4 +16,7 @@ class RobinBotApp < Sinatra::Base
   delete '/' do
     $redis.delete[ params[:id] ]
   end
+  get '/health' do
+    "OK"
+  end
 end
