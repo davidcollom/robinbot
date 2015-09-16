@@ -6,7 +6,7 @@ require './resources/bear.rb'
 class RobinBotApp < Sinatra::Base
   get '/' do
     content_type 'text/plain;charset=utf8'
-    Cowsay::Character::Bear.say $redis.randomkey
+    Cowsay::Character::Bear.say $redis[$redis.randomkey]
   end
   
   post '/' do
