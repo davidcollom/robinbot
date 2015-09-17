@@ -27,6 +27,9 @@ class RobinBotApp < Sinatra::Base
     content_type 'text/plain;charset=utf8'
     $redis.keys.map{|k| "#{k} => #{$redis[k]}" }.join("\n\n")
   end
+  get '/health' do
+    "OK"
+  end
   get '/:key' do
     content_type 'text/plain;charset=utf8'
     halt(404) if $redis[ params[:key] ].nil?
@@ -47,8 +50,5 @@ class RobinBotApp < Sinatra::Base
   delete '/:key' do
     protected!
     $redis.del[ params[:key] ]
-  end
-  get '/health' do
-    "OK"
   end
 end
