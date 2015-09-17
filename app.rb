@@ -25,6 +25,7 @@ class RobinBotApp < Sinatra::Base
   end
   get '/:key' do
     content_type 'text/plain;charset=utf8'
+    halt(404) if $redis[ params[:key] ].nil?
     Cowsay::Character::Bear.say $redis[ params[:key] ]
   end
   
