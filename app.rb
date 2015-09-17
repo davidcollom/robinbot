@@ -42,7 +42,7 @@ class RobinBotApp < Sinatra::Base
   end
   delete '/:key' do
     protected!
-    $redis.delete[ params[:key] ]
+    $redis.del[ params[:key] ]
   end
   get '/health' do
     "OK"
