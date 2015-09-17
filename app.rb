@@ -6,7 +6,9 @@ require './resources/bear.rb'
 class RobinBotApp < Sinatra::Base
   get '/' do
     content_type 'text/plain;charset=utf8'
-    Cowsay::Character::Bear.say $redis[$redis.randomkey]
+    key = $redis.randomkey
+    response.headers['X-Robin-Bot-Key'] = key
+    Cowsay::Character::Bear.say $redis[key]
   end
   get '/:key' do
     content_type 'text/plain;charset=utf8'
