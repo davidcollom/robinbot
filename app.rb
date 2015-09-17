@@ -28,6 +28,10 @@ class RobinBotApp < Sinatra::Base
     halt(404) if $redis[ params[:key] ].nil?
     Cowsay::Character::Bear.say $redis[ params[:key] ]
   end
+  get '/list' do
+    content_type 'text/plain;charset=utf8'
+    $redis.keys.map{|k| "#{k} => #{$redis[k]}" }.join("\n\n")
+  end
   
   post '/' do
     protected!
