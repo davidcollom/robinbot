@@ -4,7 +4,7 @@ module Cowsay
       def initialize
         @thoughts = '\\'
         @eyes = 'oo'
-        @tongue = ''
+        @tongue = '  '
       end
       def template
         <<-TEMPLATE
