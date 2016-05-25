@@ -18,6 +18,7 @@ class RobinBotApp < Sinatra::Base
   end
   
   get '/' do
+    response.headers['Vary'] = 'Accept-Encoding'
     content_type 'text/plain;charset=utf8'
     key = $redis.randomkey
     response.headers['X-Robin-Bot-Key'] = key
