@@ -29,6 +29,7 @@ class RobinBotApp < Sinatra::Base
     $redis.keys.map{|k| "#{k} => #{$redis[k]}" }.join("\n\n")
   end
   get '/health' do
+    content_type 'text/plain;charset=utf8'
     Cowsay::Character::Bear.say "OK"
   end
   get '/:key' do
