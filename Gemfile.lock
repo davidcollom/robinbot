@@ -5,7 +5,7 @@ GEM
     cowsay (0.3.0)
     mustermann (1.0.1)
     newrelic_rpm (4.6.0.338)
-    puma (3.11.0)
+    puma (3.12.6)
     rack (2.0.3)
     rack-protection (2.0.0)
       rack
